@@ -146,3 +146,19 @@ wealth.fill(mean)
 }
 redistributeWealth([0, 10]) //[ 5, 5 ]
 redistributeWealth([5, 10, 6]) //[7, 7, 7]
+
+//DETECT PANGRAM
+/*
+ "The quick brown fox jumps over the lazy dog" is a pangram, 
+ because it uses the letters A-Z at least once (case is irrelevant).
+
+Given a string, detect whether or not it is a pangram. 
+Return True if it is, False if not. Ignore numbers and punctuation.
+*/
+function isPangram(string){
+  const str = string.replace(/[^a-zA-Z]/gi,'').toLowerCase()
+  const set = new Set([...str]);
+  return set.size === 26;
+}
+isPangram("The quick brown fox jumps over the lazy dog.") //true
+isPangram("Not a pangram") //false
