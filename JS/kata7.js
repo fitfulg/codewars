@@ -120,3 +120,29 @@ function validBraces2(braces) {
 validBraces("()"); //true
 validBraces("((){})()"); //true
 validBraces("[([]()[})]"); //false
+
+//WEALTH EQUALITY
+/*
+Create a function that redistributes all wealth equally among all citizens.
+
+Wealth is represented as an array/list where every index is the wealth of a single citizen. 
+The function should mutate the input such that every index has the same amount of wealth. 
+MUTATE the input array/list, don't return anything.
+
+See example:
+
+wealth = [5, 10, 6]  # This represents:
+                     # citizen 1 has wealth 5
+                     # citizen 2 has wealth 10
+                     # citizen 3 has wealth 6
+                     
+redistribute_wealth(wealth) # mutates wealth list
+wealth => [7, 7, 7] # wealth has now been equally redistributed
+*/
+function redistributeWealth(wealth) {
+  let mean = wealth.reduce((a, b) => a + b, 0) / wealth.length;
+// .fill() mutates the array
+wealth.fill(mean)
+}
+redistributeWealth([0, 10]) //[ 5, 5 ]
+redistributeWealth([5, 10, 6]) //[7, 7, 7]
